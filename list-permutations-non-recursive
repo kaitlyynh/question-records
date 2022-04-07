@@ -1,0 +1,32 @@
+from ArrayStack import ArrayStack
+from ArrayQueue import ArrayQueue
+def permutations(lst):
+    queue = ArrayQueue()
+    stack = ArrayStack()
+    for num in lst:
+        stack.push(num)
+    i = 0
+    if len(lst) == 1:
+        return [lst]
+    else:
+        while i < len(lst):
+            for j in range(len(lst) - 1):
+                if stack.is_empty() and len(temp_lst) == len(lst):
+                    queue.enqueue(temp_lst)
+                    for num in temp_lst:
+                        stack.push(num)
+                temp_lst = [lst[i]]
+                while not stack.is_empty():
+                    val = stack.pop()
+                    if val != lst[i]:
+                        temp_lst.append(val)
+                if i == (len(lst) - 1) and j == len(lst) - 2:
+                    queue.enqueue(temp_lst)
+            i+=1
+    final_lst = []
+    while not queue.is_empty():
+        val = queue.dequeue()
+        final_lst.append(val)
+    return final_lst
+
+
